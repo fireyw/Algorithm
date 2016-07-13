@@ -14,25 +14,24 @@ public class p1912 {
 		
 		long max=0;
 		long temp=0;
+		long temp2=0;
 		int[] a = new int[count];
 		for(int i=0;i<count;i++){
 			a[i]=s.nextInt();
 		}
 		max=a[0]; 
-		for(int i =0; i<a.length; i++){
-			
+		for(int i =1; i<a.length; i++){
 			if(a[i]<0){
-				//System.out.println("값이 마이너스 입니다 : "+ i);
 				temp=0;
 				if(max<a[i]){
 					max=a[i];
+				}else if(max+a[i]>0){
+					temp2=max+a[i];
 				}
 			}else{
 				temp=temp+a[i];
-				//System.out.println("temp 값 :" + temp);
 				if(max<temp){
 					max=temp;
-					//System.out.println("max 값 : "+ max);
 				}
 			}
 		}
