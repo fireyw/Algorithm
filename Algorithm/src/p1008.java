@@ -1,5 +1,5 @@
 //백준1008번 첫째 줄에 A/B를 소수점 9자리 이상 출력한다. 절대/상대 오차는 10-9 까지 허용한다.
-
+//git test
 import java.util.Scanner;
 
 public class p1008 {
