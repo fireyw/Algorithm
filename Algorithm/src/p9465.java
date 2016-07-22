@@ -1,6 +1,6 @@
 
 //https://www.acmicpc.net/problem/9465 문제참조
-//현재 문제 분석중
+//현재 문제 푼 후 예외사항 발생하여 확인중
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

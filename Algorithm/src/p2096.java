@@ -11,25 +11,90 @@ import java.util.StringTokenizer;
 //동적으로 할당해서 수를 계속 비교하는 방법으로 풀이
 public class p2096 {
 	static int arr[][];
+	static int memo[][] = new int[100001][3];
+	static int max=0;
+	static int min=0;
+	static int ret=0;
+	static int number;
 	public static void main(String[] args) throws IOException{
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	    String input = reader.readLine();
 
-	    int number = Integer.parseInt(input);
+	    number = Integer.parseInt(input);
 	    
 	    arr = new int[number][3];
-
-	    StringTokenizer token = new StringTokenizer("");
 	    
+	    
+	    for(int i=0; i<100001; i++){
+	    	for(int j=0; j<3;j++){
+	    		memo[i][j]=-1;
+	    	}
+	    }
+	    
+	    StringTokenizer token = new StringTokenizer("");
 	    
 	    for(int i=0; i<number; i++){
 	    	token=new StringTokenizer(reader.readLine());
 	    	for(int j=0; j<3;j++){
 	    		arr[i][j] = Integer.parseInt(token.nextToken());
 	    	}
-	    	System.out.println(i+ " 번째줄입력완료");
 	    }
-	    System.out.println("종료");
+	    
+	    max = Math.max(Math.max(solMax(0,0),solMax(0,1)), solMax(0,2));
+	    //최대값 호출 이 후 메모이제이션 초기화
+	    for(int i=0; i<100001; i++){
+	    	for(int j=0; j<3;j++){
+	    		memo[i][j]=-1;
+	    	}
+	    }
+	    ret =0;
+	    
+	    min = Math.min(Math.min(solMin(0,0),solMin(0,1)), solMin(0,2));
+	    
+	    System.out.print(max+ " "+ min);
+
 	    reader.close();
 	}
+	
+	static int solMax(int a, int b){
+
+		if(a>=number){
+			return 0;
+		}
+		if(memo[a][b]!=-1){
+			return memo[a][b];
+		}
+		
+		if(b==0){
+			ret=Math.max(solMax(a+1, 0), solMax(a+1,1)) +arr[a][b];
+		}else if(b==1){
+			ret=Math.max(Math.max(solMax(a+1, 0), solMax(a+1,1)), solMax(a+1,2)) +arr[a][b];
+		}else if(b==2){
+			ret=Math.max(solMax(a+1, 1), solMax(a+1,2)) +arr[a][b];
+		}
+		
+		memo[a][b]=ret;
+		
+		return ret;
+	}
+	static int solMin(int a, int b){
+		if(a>=number){
+			return 0;
+		}
+		if(memo[a][b]!=-1){
+			return memo[a][b];
+		}
+		
+		if(b==0){
+			ret=Math.min(solMin(a+1, 0), solMin(a+1,1)) +arr[a][b];
+		}else if(b==1){
+			ret=Math.min(Math.min(solMin(a+1, 0), solMin(a+1,1)), solMin(a+1,2)) +arr[a][b];
+		}else if(b==2){
+			ret=Math.min(solMin(a+1, 1), solMin(a+1,2)) +arr[a][b];
+		}
+		
+		memo[a][b]=ret;
+		
+		return ret;
+	}	
 }
