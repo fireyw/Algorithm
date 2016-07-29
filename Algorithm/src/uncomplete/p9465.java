@@ -1,7 +1,8 @@
 package uncomplete;
 //https://www.acmicpc.net/problem/9465 문제참조
 //현재 문제 푼 후 예외사항 발생하여 확인중
-//예외사황을 모두 살펴보았지만 160724까지 찾지못함
+//예외사항 모두 살펴보았지만 160724까지 찾지못함
+//예외사항 찾을 수 없음!!미해결 문제로 나둠
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
