@@ -45,9 +45,7 @@ public class p1912 {
 				max=temp;
 			}else if(temp<0){
 				temp=0; //임시변수 초기화
-			}
-			
-			
+			}						
 		}
 	
 		System.out.println(max);
