@@ -4,14 +4,17 @@ import java.util.Arrays;
 
 public class CyclicRotation_1 {
     public static void main(String[] args) {
-       int[] A = {3, 8, 9, 7, 6};
+       int[] A = {};
        int result[]=new int[A.length];
        int K = 7 ;
        int move=0; //실질적으로 움직인 수
-       if(K==A.length)
-           result= A;
+        int N=A.length;
+       if(K==0)
+           result=A;
+       else if(N==0)
+           result=A;
        else if(K>A.length)
-            move= K%A.length ;
+            move= K%A.length;
        else
            move=K;
 //        System.out.println("move : " + move);
@@ -24,6 +27,20 @@ public class CyclicRotation_1 {
             //System.out.println("i : " + i );
             result[i]=A[temp];
         }
-//        System.out.println("result : " + Arrays.toString(result));
+        System.out.println("result : " + Arrays.toString(result));
+      /*  int N = A.length;
+
+
+        if (N==0)
+            return A;
+        if (K>=N)
+            K %= N;
+        if (K==0)
+            return A;
+        int [] rotA = new  int [N];
+        for (int i=0; i<N; i++)
+            rotA[i] = (i<K) ? A[N+i-K] : A[i-K];
+        return rotA;
+*/
     }
 }
